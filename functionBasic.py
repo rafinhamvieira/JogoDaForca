@@ -1,11 +1,11 @@
 import os
 import time
-def limpartela():
+def cleanerScreen():
     os.system("cls")
     os.system('color 2')
     return
 
-def linhavazia():
+def emptyLine():
     print()
     return
 

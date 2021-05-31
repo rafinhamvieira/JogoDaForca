@@ -1,143 +1,143 @@
-from limpadorDeTela import limpartela, linhavazia, delay
+from functionBasic import cleanerScreen, emptyLine, delay
 
-contadorPartidas = 1
+counterMatches = 1
 while True:
-    limpartela()
-    arquivo = open('registros.txt', 'r')
-    arquivo.read()
-    arquivo.close()
-    arquivo= open('registros.txt', 'a')
+    cleanerScreen()
+    archive = open('records.txt', 'r')
+    archive.read()
+    archive.close()
+    archive= open('records.txt', 'a')
 
-    arquivo.write(" Histórico da partida número: " + str(contadorPartidas)+ '\n')
+    archive.write(" Histórico da partida número: " + str(counterMatches)+ '\n')
 
-    nomeDesafiante = input('Qual o nome do desafiante? ')
-    linhavazia()
-    nomeCompetidor = input('Qual o nome do competidor? ')
+    challengingName = input('Qual o nome do desafiante? ')
+    emptyLine()
+    competitorName = input('Qual o nome do competidor? ')
 
-    limpartela()
-    palavraChave = input('Qual a palavra chave? ')
-    if any(chr.isdigit() for chr in palavraChave):
+    cleanerScreen()
+    keyWord = input('Qual a palavra chave? ')
+    if any(chr.isdigit() for chr in keyWord):
         print("\n Digite uma palavra e não um número! ")
         delay()
     else:
-        arquivo.write("\n A palavra chave é: " +palavraChave)
-        if palavraChave != '':
-            linhavazia()
-            dica1 = input('Qual a primeira dica? ')
-            linhavazia()
-            dica2 = input('Qual a segunda dica? ')
-            linhavazia()
-            dica3 = input('Qual a terceira dica? ')
-            limpartela()
-            if contadorPartidas > 1:
-                arquivo.write('\n')
-            arquivo.write(" Nome do desafiante: " +nomeDesafiante)
-            arquivo.write("\n Nome do competidor: " +nomeCompetidor)
-            limpartela()
+        archive.write("\n A palavra chave é: " +keyWord)
+        if keyWord != '':
+            emptyLine()
+            tip1 = input('Qual a primeira dica? ')
+            emptyLine()
+            tip2 = input('Qual a segunda dica? ')
+            emptyLine()
+            tip3 = input('Qual a terceira dica? ')
+            cleanerScreen()
+            if counterMatches > 1:
+                archive.write('\n')
+            archive.write(" Nome do desafiante: " +challengingName)
+            archive.write("\n Nome do competidor: " +competitorName)
+            cleanerScreen()
 
             
-            digitadas = []
+            typed = []
 
-            valorPalavraChave = len(palavraChave)
-            contador =0 
-            while contador < valorPalavraChave:
-                contador += 1
+            valuekeyWord = len(keyWord)
+            counter =0 
+            while counter < valuekeyWord:
+                counter += 1
 
-            valorAsteriscos = '*' * contador
-            print(f' A palavra contém {contador} letras\n\n Essa é a palavra: {valorAsteriscos}\n')
+            asterisksValue = '*' * counter
+            print(f' A palavra contém {counter} words\n\n Essa é a palavra: {asterisksValue}\n')
 
-            linhavazia()
-            jogar= 'jogar'
-            dica = 'dica'
+            emptyLine()
+            play = 'jogar'
+            tip = 'dica'
             chances = 5
-            contadorDica1 = 0
-            contadorDica2 = 0
-            contadorDica3 = 0
-            jogar_novamente = "jogar novamente"
-            sair_do_jogo = "sair do jogo"
+            tipCounter1 = 0
+            tipCounter2 = 0
+            tipCounter3 = 0
+            playAgain = "jogar novamente"
+            quitGame = "sair do jogo"
 
 
-            linhavazia()
-            secreto_temporario = ''
-            while palavraChave != secreto_temporario:
-                escolha = input(' Deseja jogar ou pedir uma dica? ')
-                linhavazia()
-                if jogar in escolha:
-                    letra = input(' Qual letra você deseja jogar? ')
-                    linhavazia()
-                    digitadas.append(letra)
-                    if letra in palavraChave:
-                        print(f' A letra {letra}, existe na palavra!\n ')
-                        linhavazia()
+            emptyLine()
+            temporarySecret = ''
+            while keyWord != temporarySecret:
+                choice = input(' Deseja jogar ou pedir uma dica? ')
+                emptyLine()
+                if play in choice:
+                    word = input(' Qual word você deseja jogar? ')
+                    emptyLine()
+                    typed.append(word)
+                    if word in keyWord:
+                        print(f' A word {word}, existe na palavra!\n ')
+                        emptyLine()
                     else:
-                        print(f' A letra {letra} não existe na palavra!\n ')
-                        linhavazia()
-                        digitadas.pop()
-                    secreto_temporario = ''
-                    for letra_secreta in palavraChave:
-                        if letra_secreta in digitadas:
-                            secreto_temporario += letra_secreta
+                        print(f' A word {word} não existe na palavra!\n ')
+                        emptyLine()
+                        typed.pop()
+                    temporarySecret = ''
+                    for secretWord in keyWord:
+                        if secretWord in typed:
+                            temporarySecret += secretWord
                         else:
-                            secreto_temporario += '*'
+                            temporarySecret += '*'
 
-                    if secreto_temporario == palavraChave:
-                            print(f' Parabéns você ganhou, a palavra era {palavraChave}')
-                            contadorPartidas += 1
-                            arquivo.write("\n Vencedor: " +nomeCompetidor)
-                            arquivo.write("\n Desafiante: " +nomeDesafiante+ '\n\n')
-                            linhavazia()
-                            arquivo.close()
-                            arquivo = open('registros.txt', 'r')
-                            conteudo = arquivo.read()
-                            arquivo.close()
-                            arquivo= open('registros.txt', 'a')
-                            print(conteudo)
-                            sair_ou_entrar = input(' Deseja jogar novamente ou sair do jogo? ')
-                            if sair_do_jogo in sair_ou_entrar:
+                    if temporarySecret == keyWord:
+                            print(f' Parabéns você ganhou, a palavra era {keyWord}')
+                            counterMatches += 1
+                            archive.write("\n Vencedor: " +competitorName)
+                            archive.write("\n Desafiante: " +challengingName+ '\n\n')
+                            emptyLine()
+                            archive.close()
+                            archive = open('records.txt', 'r')
+                            contents = archive.read()
+                            archive.close()
+                            archive= open('records.txt', 'a')
+                            print(contents)
+                            quitOrPlay = input(' Deseja jogar novamente ou sair do jogo? ')
+                            if quitGame in quitOrPlay:
                                 quit()
                     else:
-                            print(f' A palavra secreta está assim: {secreto_temporario}\n')
-                            linhavazia()
-                    if letra not in palavraChave:
+                            print(f' A palavra secreta está assim: {temporarySecret}\n')
+                            emptyLine()
+                    if word not in keyWord:
                             chances -= 1
                             print(f' Você ainda tem {chances} chances\n')
-                            linhavazia()
+                            emptyLine()
                             if chances == 0:
                                 print(' Você perdeu! ')
-                                contadorPartidas += 1
-                                arquivo.write("\n Vencedor: " +nomeDesafiante)
-                                arquivo.write("\n Competidor: " +nomeCompetidor+ '\n\n')
-                                linhavazia()
-                                arquivo.close()
-                                arquivo = open('registros.txt', 'r')
-                                conteudo = arquivo.read()
-                                arquivo.close()
-                                arquivo= open('registros.txt', 'a')
-                                print(conteudo)
-                                sair_ou_entrar = input(' Deseja jogar novamente ou sair do jogo? ')
-                elif dica in escolha:
-                    if contadorDica1 < 1:
-                        dica in escolha
-                        linhavazia()
-                        print(' A dica é:', dica1,'\n')
-                        contadorDica1 += 1
+                                counterMatches += 1
+                                archive.write("\n Vencedor: " +challengingName)
+                                archive.write("\n Competidor: " +competitorName+ '\n\n')
+                                emptyLine()
+                                archive.close()
+                                archive = open('records.txt', 'r')
+                                contents = archive.read()
+                                archive.close()
+                                archive= open('records.txt', 'a')
+                                print(contents)
+                                quitOrPlay = input(' Deseja jogar novamente ou sair do jogo? ')
+                elif tip in choice:
+                    if tipCounter1 < 1:
+                        tip in choice
+                        emptyLine()
+                        print(' A dica é:', tip1,'\n')
+                        tipCounter1 += 1
                         
-                    elif contadorDica2 < 1:
-                        dica in escolha
-                        linhavazia()
-                        print(' A dica é:',dica2,'\n')
-                        contadorDica2 += 1
+                    elif tipCounter2 < 1:
+                        tip in choice
+                        emptyLine()
+                        print(' A dica é:',tip2,'\n')
+                        tipCounter2 += 1
                         
-                    elif contadorDica3 < 1:
-                        dica in escolha
-                        linhavazia()
-                        print(' A dica é:',dica3,'\n')
-                        contadorDica3 += 1
+                    elif tipCounter3 < 1:
+                        tip in choice
+                        emptyLine()
+                        print(' A dica é:',tip3,'\n')
+                        tipCounter3 += 1
                         
-                    elif contadorDica1 == 1 and contadorDica2 == 1 and contadorDica3 == 1:
-                        linhavazia()
+                    elif tipCounter1 == 1 and tipCounter2 == 1 and tipCounter3 == 1:
+                        emptyLine()
                         print(' As dicas acabaram!\n ')
-            arquivo.close()
+            archive.close()
         else:
             print('Digite uma palavra correta!! ')
             delay()
