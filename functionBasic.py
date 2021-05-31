@@ -10,4 +10,4 @@ def emptyLine():
     return
 
 def delay():
-    time.sleep(6)
+    time.sleep(4)
