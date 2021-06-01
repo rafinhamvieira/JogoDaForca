@@ -71,24 +71,24 @@ while True:
                                 tip in choice
                                 print(' A dica é:', tip1,'\n')
                                 tipCounter1 = 1
-                                break
+                                choice = 'jogar'
                             elif tipCounter2 < 1:
                                 tip in choice
                                 emptyLine()
                                 print(' A dica é:',tip2,'\n')
                                 tipCounter2 = 1
-                                break
+                                choice = 'jogar'
                             elif tipCounter3 < 1:
                                 tip in choice
                                 emptyLine()
                                 tipCounter3 = 1
                                 print(' A dica é:',tip3,'\n')
-                                break
+                                choice = 'jogar'
                             elif tipCounter1 == 1 and tipCounter2 == 1 and tipCounter3 == 1:
                                 emptyLine()
                                 print(' As dicas acabaram!\n ')
-                                break
-                        elif play in choice:
+                                choice = 'jogar'
+                        if play in choice:
                             wordList = []
                             word = input(' Qual letra você deseja jogar? ')
                             for element in word:
@@ -129,7 +129,7 @@ while True:
                                             quit()
                                 else:
                                         print(f'\n A palavra secreta está assim: {temporarySecret}\n')
-                                        break
+                                        
                                 if word not in keyWord:
                                         chances -= 1
                                         print(f' Você ainda tem {chances} chances\n')
